@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1rx6fwa4h5qe"]
+
+[ext_resource type="PackedScene" uid="uid://brov3u7u5p7lw" path="res://ui/shop/upgrades/multiplier.tscn" id="1_6at4a"]
+
+[node name="Live" instance=ExtResource("1_6at4a")]
+
+[node name="Description" parent="VBoxContainer" index="2"]
+text = "Доп. жизнь"

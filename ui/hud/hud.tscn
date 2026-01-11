@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv4wit3ggljnn"]
+
+[ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_7bh7h"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_7bh7h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Lives" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Lives"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "lives"
+
+[node name="Points" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Points"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "points"

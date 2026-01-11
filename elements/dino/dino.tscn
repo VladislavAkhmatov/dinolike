@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://bslcg4j775xvd"]
+
+[ext_resource type="Script" path="res://elements/dino/dino.gd" id="1_vlda0"]
+[ext_resource type="Texture2D" uid="uid://c3fagvxklcj6h" path="res://assets/dino.png" id="1_vqc4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ynnk"]
+atlas = ExtResource("1_vqc4w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljlah"]
+atlas = ExtResource("1_vqc4w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufrur"]
+atlas = ExtResource("1_vqc4w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neygf"]
+atlas = ExtResource("1_vqc4w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3t5s"]
+atlas = ExtResource("1_vqc4w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpf45"]
+atlas = ExtResource("1_vqc4w")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvykv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ynnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljlah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufrur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neygf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3t5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpf45")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmbmp"]
+radius = 12.0
+
+[node name="Dino" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_vlda0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hvykv")
+animation = &"run"
+frame_progress = 0.164986
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1)
+shape = SubResource("CircleShape2D_xmbmp")
+
+[node name="Camera2D" type="Camera2D" parent="."]

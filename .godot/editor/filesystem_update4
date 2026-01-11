@@ -1,0 +1,17 @@
+res://ui/shop/shop.tscn
+res://ui/shop/shop.gd
+res://core/globals.gd
+res://game/game.tscn
+res://elements/tilemap/tile_map.tscn
+res://elements/dino/dino.tscn
+res://elements/background/background.tscn
+res://elements/meteor/meteor.tscn
+res://elements/meteor/meteor_spawner.tscn
+res://ui/hud/hud.tscn
+res://ui/game_over/game_over.tscn
+res://ui/shop/upgrades/multiplier.tscn
+res://ui/shop/upgrades/dash.tscn
+res://ui/shop/upgrades/live.tscn
+res://ui/shop/upgrades/speed.tscn
+res://ui/shop/upgrades/multiplier.gd
+res://game/game.gd

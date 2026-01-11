@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://bgjh14jufjaf4"]
+
+[ext_resource type="Script" path="res://elements/meteor/meteor.gd" id="1_457uk"]
+[ext_resource type="Texture2D" uid="uid://pjphml14w7bg" path="res://assets/meteor.png" id="1_n6nma"]
+[ext_resource type="Texture2D" uid="uid://cm7sq7qigcrp1" path="res://assets/explosion.png" id="3_2q2hr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n050"]
+atlas = ExtResource("1_n6nma")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjfno"]
+atlas = ExtResource("1_n6nma")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rnrf"]
+atlas = ExtResource("1_n6nma")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5flko"]
+atlas = ExtResource("3_2q2hr")
+region = Rect2(512, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htnmb"]
+atlas = ExtResource("3_2q2hr")
+region = Rect2(544, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp1fi"]
+atlas = ExtResource("3_2q2hr")
+region = Rect2(576, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syu3h"]
+atlas = ExtResource("3_2q2hr")
+region = Rect2(608, 416, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4v0qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjfno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rnrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5flko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htnmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp1fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syu3h")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6smv"]
+radius = 5.0
+
+[node name="Meteor" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_457uk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4v0qf")
+animation = &"explosion"
+autoplay = "default"
+frame = 3
+frame_progress = 0.280589
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_v6smv")

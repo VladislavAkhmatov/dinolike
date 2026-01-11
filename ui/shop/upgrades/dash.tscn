@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3vethld0pqd"]
+
+[ext_resource type="PackedScene" uid="uid://brov3u7u5p7lw" path="res://ui/shop/upgrades/multiplier.tscn" id="1_jx67f"]
+[ext_resource type="Texture2D" uid="uid://cn1qkllyrfofh" path="res://assets/icons/speed.png" id="2_jn6ba"]
+
+[node name="Dash" instance=ExtResource("1_jx67f")]
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("2_jn6ba")
+
+[node name="Description" parent="VBoxContainer" index="2"]
+text = "Дэш"

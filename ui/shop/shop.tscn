@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvh0mhe8fi7dl"]
+
+[ext_resource type="PackedScene" uid="uid://brov3u7u5p7lw" path="res://ui/shop/upgrades/multiplier.tscn" id="1_psly6"]
+[ext_resource type="Script" path="res://ui/shop/shop.gd" id="1_qkk0m"]
+[ext_resource type="PackedScene" uid="uid://dw3vethld0pqd" path="res://ui/shop/upgrades/dash.tscn" id="2_n0wjn"]
+[ext_resource type="PackedScene" uid="uid://1rx6fwa4h5qe" path="res://ui/shop/upgrades/live.tscn" id="3_x1mp6"]
+[ext_resource type="PackedScene" uid="uid://bix4y4o8l3o5a" path="res://ui/shop/upgrades/speed.tscn" id="4_cudmr"]
+
+[node name="Shop" type="CanvasLayer"]
+script = ExtResource("1_qkk0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Multiplier" parent="MarginContainer/GridContainer" instance=ExtResource("1_psly6")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Dash" parent="MarginContainer/GridContainer" instance=ExtResource("2_n0wjn")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = null
+
+[node name="Live" parent="MarginContainer/GridContainer" instance=ExtResource("3_x1mp6")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = null
+
+[node name="Speed" parent="MarginContainer/GridContainer" instance=ExtResource("4_cudmr")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = null
+
+[node name="Play" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "PLAY!"
+
+[connection signal="pressed" from="MarginContainer/GridContainer/Play" to="." method="_on_play_pressed"]
