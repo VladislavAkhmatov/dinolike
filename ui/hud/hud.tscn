@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bv4wit3ggljnn"]
 
-[ext_resource type="Script" path="res://ui/hud/hud.gd" id="1_7bh7h"]
+[ext_resource type="Script" uid="uid://ck55slkwoduoc" path="res://ui/hud/hud.gd" id="1_7bh7h"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_7bh7h")
@@ -30,4 +30,4 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/Points"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "points"
+text = "POINTS"

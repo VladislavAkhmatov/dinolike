@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://h6k27g3op3bh"]
+
+[ext_resource type="Script" uid="uid://dtreipljkf6c4" path="res://ui/menu/settings.gd" id="1_fwihg"]
+[ext_resource type="Texture2D" uid="uid://bos6nop3ni28v" path="res://assets/background/shop_menu.png" id="2_ggeft"]
+[ext_resource type="StyleBox" uid="uid://ca7qe4m52rutk" path="res://game/styles/btn_normal.tres" id="3_sd6jv"]
+[ext_resource type="AudioStream" uid="uid://f8nljuc06n8g" path="res://game/sounds/Click.wav" id="4_1vigj"]
+[ext_resource type="StyleBox" uid="uid://bmyrx4u7rftjb" path="res://game/styles/btn_hover.tres" id="4_b6svu"]
+[ext_resource type="StyleBox" uid="uid://cy4rb730004by" path="res://game/styles/btn_pressed.tres" id="5_imd6m"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_fwihg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.416992, 0.416992)
+texture = ExtResource("2_ggeft")
+centered = false
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(160, 110)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+text = "MUSIC"
+
+[node name="Music" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Sound" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SOUND"
+
+[node name="SFX" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("5_imd6m")
+theme_override_styles/hover = ExtResource("4_b6svu")
+theme_override_styles/pressed = ExtResource("5_imd6m")
+theme_override_styles/normal = ExtResource("3_sd6jv")
+text = "MAIN_MENU_BTN"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1vigj")
+bus = &"sfx"
+
+[connection signal="value_changed" from="VBoxContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

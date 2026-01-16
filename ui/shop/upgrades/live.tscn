@@ -1,8 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://1rx6fwa4h5qe"]
+[gd_scene load_steps=7 format=3 uid="uid://dwytnrs0yx6ar"]
 
-[ext_resource type="PackedScene" uid="uid://brov3u7u5p7lw" path="res://ui/shop/upgrades/multiplier.tscn" id="1_6at4a"]
+[ext_resource type="Script" uid="uid://btwmh4jaglpq5" path="res://ui/shop/upgrades/live.gd" id="1_10gvh"]
+[ext_resource type="Texture2D" uid="uid://bgolyviohqdvl" path="res://assets/icons/extra_live.png" id="2_072u0"]
+[ext_resource type="AudioStream" uid="uid://f8nljuc06n8g" path="res://game/sounds/Click.wav" id="3_2083l"]
+[ext_resource type="StyleBox" uid="uid://ca7qe4m52rutk" path="res://game/styles/btn_normal.tres" id="3_k1fh0"]
+[ext_resource type="StyleBox" uid="uid://bmyrx4u7rftjb" path="res://game/styles/btn_hover.tres" id="4_trg23"]
+[ext_resource type="StyleBox" uid="uid://cy4rb730004by" path="res://game/styles/btn_pressed.tres" id="5_g53tq"]
 
-[node name="Live" instance=ExtResource("1_6at4a")]
+[node name="Live" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_10gvh")
 
-[node name="Description" parent="VBoxContainer" index="2"]
-text = "Доп. жизнь"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(160, 230)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -20.0
+offset_right = 48.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_072u0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Upgraded" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "LIVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="UpgradeBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("5_g53tq")
+theme_override_styles/disabled = ExtResource("5_g53tq")
+theme_override_styles/hover = ExtResource("4_trg23")
+theme_override_styles/pressed = ExtResource("5_g53tq")
+theme_override_styles/normal = ExtResource("3_k1fh0")
+text = "BUY_BTN"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2083l")
+
+[connection signal="pressed" from="VBoxContainer/UpgradeBtn" to="." method="_on_upgrade_btn_pressed"]

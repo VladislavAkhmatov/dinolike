@@ -1,10 +1,23 @@
+C:/xampp/htdocs/dashboard/dinolike
+C:/godot_build/dinolike_android
+C:/Users/515/.android
+C:/Users/515/appdata/Local/Android/Sdk
+C:/Program Files/platform-tools
+C:/Program Files/Java
+C:/godot_build/dinolike_pc
+res://game/styles
+res://ui/menu
+res://assets/ui
+res://assets/background
+res://game/fonts
 res://game
+res://game/sounds
+res://assets
 res://ui/shop
 res://ui/shop/upgrades
 res://ui/hud
 res://core
 res://ui
-res://assets
 res://elements/meteor
 res://elements/background
 res://elements/dino

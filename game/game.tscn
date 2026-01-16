@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c526ot26ugv5q"]
 
-[ext_resource type="Script" path="res://game/game.gd" id="1_m4itm"]
+[ext_resource type="Script" uid="uid://douve4pb2rs4q" path="res://game/game.gd" id="1_m4itm"]
 [ext_resource type="PackedScene" uid="uid://daoc5r6idgb5n" path="res://elements/tilemap/tile_map.tscn" id="1_wi73y"]
 [ext_resource type="PackedScene" uid="uid://bjsktebe47owl" path="res://elements/background/background.tscn" id="3_ps5mi"]
 [ext_resource type="PackedScene" uid="uid://bv4wit3ggljnn" path="res://ui/hud/hud.tscn" id="5_3bfcs"]
@@ -10,7 +10,6 @@
 script = ExtResource("1_m4itm")
 
 [node name="TileMap" parent="." instance=ExtResource("1_wi73y")]
-position = Vector2(0, -48)
 
 [node name="Background" parent="." instance=ExtResource("3_ps5mi")]
 position = Vector2(-1, 1)

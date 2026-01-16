@@ -1,20 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvh0mhe8fi7dl"]
+[gd_scene load_steps=10 format=3 uid="uid://dvh0mhe8fi7dl"]
 
 [ext_resource type="PackedScene" uid="uid://brov3u7u5p7lw" path="res://ui/shop/upgrades/multiplier.tscn" id="1_psly6"]
-[ext_resource type="Script" path="res://ui/shop/shop.gd" id="1_qkk0m"]
-[ext_resource type="PackedScene" uid="uid://dw3vethld0pqd" path="res://ui/shop/upgrades/dash.tscn" id="2_n0wjn"]
-[ext_resource type="PackedScene" uid="uid://1rx6fwa4h5qe" path="res://ui/shop/upgrades/live.tscn" id="3_x1mp6"]
-[ext_resource type="PackedScene" uid="uid://bix4y4o8l3o5a" path="res://ui/shop/upgrades/speed.tscn" id="4_cudmr"]
+[ext_resource type="Script" uid="uid://di0eqgg1v1rkf" path="res://ui/shop/shop.gd" id="1_qkk0m"]
+[ext_resource type="Texture2D" uid="uid://bos6nop3ni28v" path="res://assets/background/shop_menu.png" id="2_hgah5"]
+[ext_resource type="PackedScene" uid="uid://dwytnrs0yx6ar" path="res://ui/shop/upgrades/live.tscn" id="3_pe0v6"]
+[ext_resource type="PackedScene" uid="uid://dv1mcovyeulbk" path="res://ui/shop/upgrades/dash.tscn" id="4_2bnje"]
+[ext_resource type="AudioStream" uid="uid://f8nljuc06n8g" path="res://game/sounds/Click.wav" id="5_u8xun"]
+[ext_resource type="StyleBox" uid="uid://ca7qe4m52rutk" path="res://game/styles/btn_normal.tres" id="6_2s7rd"]
+[ext_resource type="StyleBox" uid="uid://bmyrx4u7rftjb" path="res://game/styles/btn_hover.tres" id="7_ndg6y"]
+[ext_resource type="StyleBox" uid="uid://cy4rb730004by" path="res://game/styles/btn_pressed.tres" id="8_dsabp"]
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("1_qkk0m")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.417208, 0.40625)
+texture = ExtResource("2_hgah5")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0.486275)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Points" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.044
+anchor_right = 0.152
+anchor_bottom = 0.125
+offset_top = -0.0800009
+offset_right = 0.0399933
+text = "Points"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.141
+anchor_right = 1.0
+anchor_bottom = 0.656
+offset_top = -0.120003
+offset_bottom = 0.0799866
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -22,35 +53,63 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 80
 columns = 3
 
 [node name="Multiplier" parent="MarginContainer/GridContainer" instance=ExtResource("1_psly6")]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Dash" parent="MarginContainer/GridContainer" instance=ExtResource("2_n0wjn")]
+[node name="Live" parent="MarginContainer/GridContainer" instance=ExtResource("3_pe0v6")]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-script = null
 
-[node name="Live" parent="MarginContainer/GridContainer" instance=ExtResource("3_x1mp6")]
+[node name="Dash" parent="MarginContainer/GridContainer" instance=ExtResource("4_2bnje")]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-script = null
 
-[node name="Speed" parent="MarginContainer/GridContainer" instance=ExtResource("4_cudmr")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = null
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(160, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -73.0
+offset_right = 80.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
 
-[node name="Play" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "PLAY!"
+theme_override_styles/focus = ExtResource("8_dsabp")
+theme_override_styles/hover = ExtResource("7_ndg6y")
+theme_override_styles/pressed = ExtResource("8_dsabp")
+theme_override_styles/normal = ExtResource("6_2s7rd")
+text = "PLAY_BTN"
 
-[connection signal="pressed" from="MarginContainer/GridContainer/Play" to="." method="_on_play_pressed"]
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/focus = ExtResource("8_dsabp")
+theme_override_styles/hover = ExtResource("7_ndg6y")
+theme_override_styles/pressed = ExtResource("8_dsabp")
+theme_override_styles/normal = ExtResource("6_2s7rd")
+text = "MAIN_MENU_BTN"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_u8xun")
+bus = &"sfx"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

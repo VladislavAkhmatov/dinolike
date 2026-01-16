@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bix4y4o8l3o5a"]
-
-[ext_resource type="PackedScene" uid="uid://brov3u7u5p7lw" path="res://ui/shop/upgrades/multiplier.tscn" id="1_lxdtg"]
-
-[node name="Speed" instance=ExtResource("1_lxdtg")]
-
-[node name="Description" parent="VBoxContainer" index="2"]
-text = "Скорость"

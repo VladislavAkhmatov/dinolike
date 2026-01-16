@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bgjh14jufjaf4"]
 
-[ext_resource type="Script" path="res://elements/meteor/meteor.gd" id="1_457uk"]
+[ext_resource type="Script" uid="uid://lsvfjs3ywm0r" path="res://elements/meteor/meteor.gd" id="1_457uk"]
 [ext_resource type="Texture2D" uid="uid://pjphml14w7bg" path="res://assets/meteor.png" id="1_n6nma"]
 [ext_resource type="Texture2D" uid="uid://cm7sq7qigcrp1" path="res://assets/explosion.png" id="3_2q2hr"]
 

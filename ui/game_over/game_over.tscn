@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgfco0clehs38"]
+[gd_scene load_steps=6 format=3 uid="uid://cgfco0clehs38"]
 
-[ext_resource type="Script" path="res://ui/game_over/game_over.gd" id="1_pmc1t"]
+[ext_resource type="Script" uid="uid://ce7h8vk1a5vpf" path="res://ui/game_over/game_over.gd" id="1_pmc1t"]
+[ext_resource type="StyleBox" uid="uid://ca7qe4m52rutk" path="res://game/styles/btn_normal.tres" id="2_klfow"]
+[ext_resource type="AudioStream" uid="uid://f8nljuc06n8g" path="res://game/sounds/Click.wav" id="2_u3n2v"]
+[ext_resource type="StyleBox" uid="uid://bmyrx4u7rftjb" path="res://game/styles/btn_hover.tres" id="3_cpuop"]
+[ext_resource type="StyleBox" uid="uid://cy4rb730004by" path="res://game/styles/btn_pressed.tres" id="4_0k8xw"]
 
 [node name="GameOver" type="CanvasLayer"]
 process_mode = 3
@@ -20,28 +24,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -80.0
+offset_top = -51.5
+offset_right = 80.0
+offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "GAME OVER"
+text = "GAME_OVER"
 horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "RESTART"
+theme_override_styles/focus = ExtResource("4_0k8xw")
+theme_override_styles/hover = ExtResource("3_cpuop")
+theme_override_styles/pressed = ExtResource("4_0k8xw")
+theme_override_styles/normal = ExtResource("2_klfow")
+text = "RESTART_BTN"
 
 [node name="Magazine" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "MAGAZINE"
+theme_override_styles/focus = ExtResource("4_0k8xw")
+theme_override_styles/hover = ExtResource("3_cpuop")
+theme_override_styles/pressed = ExtResource("4_0k8xw")
+theme_override_styles/normal = ExtResource("2_klfow")
+text = "MAGAZINE_BTN"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_0k8xw")
+theme_override_styles/hover = ExtResource("3_cpuop")
+theme_override_styles/pressed = ExtResource("4_0k8xw")
+theme_override_styles/normal = ExtResource("2_klfow")
+text = "MAIN_MENU_BTN"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("2_u3n2v")
+bus = &"sfx"
 
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Magazine" to="." method="_on_magazine_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://brov3u7u5p7lw"]
+[gd_scene load_steps=7 format=3 uid="uid://brov3u7u5p7lw"]
 
-[ext_resource type="Texture2D" uid="uid://kimv487w8it3" path="res://assets/icons/miltiplier.png" id="1_fdwt8"]
-[ext_resource type="Script" path="res://ui/shop/upgrades/multiplier.gd" id="1_sxxul"]
+[ext_resource type="Script" uid="uid://bvjjpvm54r313" path="res://ui/shop/upgrades/multiplier.gd" id="1_sxxul"]
+[ext_resource type="Texture2D" uid="uid://dryrl1kiil23i" path="res://assets/icons/multiplier.png" id="2_0j5nq"]
+[ext_resource type="AudioStream" uid="uid://f8nljuc06n8g" path="res://game/sounds/Click.wav" id="3_6fv2e"]
+[ext_resource type="StyleBox" uid="uid://ca7qe4m52rutk" path="res://game/styles/btn_normal.tres" id="3_tpnxo"]
+[ext_resource type="StyleBox" uid="uid://bmyrx4u7rftjb" path="res://game/styles/btn_hover.tres" id="4_nam4k"]
+[ext_resource type="StyleBox" uid="uid://cy4rb730004by" path="res://game/styles/btn_pressed.tres" id="5_vw7kb"]
 
 [node name="Multiplier" type="Control"]
 custom_minimum_size = Vector2(32, 32)
@@ -20,17 +24,25 @@ grow_vertical = 2
 script = ExtResource("1_sxxul")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(160, 230)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -97.5
+offset_right = 48.0
+offset_bottom = 97.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("1_fdwt8")
+texture = ExtResource("2_0j5nq")
 expand_mode = 1
 stretch_mode = 5
 
@@ -42,14 +54,23 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Description" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Множитель очков"
+text = "MULTIPLIER"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="UpgradeBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Upgrade"
+theme_override_styles/focus = ExtResource("5_vw7kb")
+theme_override_styles/disabled = ExtResource("5_vw7kb")
+theme_override_styles/hover = ExtResource("4_nam4k")
+theme_override_styles/pressed = ExtResource("5_vw7kb")
+theme_override_styles/normal = ExtResource("3_tpnxo")
+text = "BUY_BTN"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6fv2e")
 
 [connection signal="pressed" from="VBoxContainer/UpgradeBtn" to="." method="_on_upgrade_btn_pressed"]

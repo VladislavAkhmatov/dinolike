@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=3 uid="uid://dxp6ghlguuwak"]
+
+[ext_resource type="Script" uid="uid://b02onn7nvjxku" path="res://ui/menu/main_menu.gd" id="1_frhu1"]
+[ext_resource type="Texture2D" uid="uid://b21rm4efoqtby" path="res://assets/background/main_background.png" id="2_0acd3"]
+[ext_resource type="Texture2D" uid="uid://camx0x7f2kihf" path="res://assets/icons/free-icon-russia-555451 (2).png" id="2_6veuo"]
+[ext_resource type="Texture2D" uid="uid://4jddyk1hr264" path="res://assets/icons/free-icon-united-states-206626 (2).png" id="3_swu30"]
+[ext_resource type="StyleBox" uid="uid://ca7qe4m52rutk" path="res://game/styles/btn_normal.tres" id="3_ulwa0"]
+[ext_resource type="StyleBox" uid="uid://bmyrx4u7rftjb" path="res://game/styles/btn_hover.tres" id="4_qft2t"]
+[ext_resource type="AudioStream" uid="uid://f8nljuc06n8g" path="res://game/sounds/Click.wav" id="4_rvr1c"]
+[ext_resource type="StyleBox" uid="uid://cy4rb730004by" path="res://game/styles/btn_pressed.tres" id="5_m2rnd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_raiht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pads4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dom6d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7bg7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rh766"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7qby"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3ogd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xsa2o"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_frhu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.416016, 0.416016)
+texture = ExtResource("2_0acd3")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -170.0
+offset_right = 188.0
+offset_bottom = -38.0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("5_m2rnd")
+theme_override_styles/hover = ExtResource("4_qft2t")
+theme_override_styles/pressed = ExtResource("5_m2rnd")
+theme_override_styles/normal = ExtResource("3_ulwa0")
+text = "PLAY_BTN"
+
+[node name="Magazine" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("5_m2rnd")
+theme_override_styles/hover = ExtResource("4_qft2t")
+theme_override_styles/pressed = ExtResource("5_m2rnd")
+theme_override_styles/normal = ExtResource("3_ulwa0")
+text = "MAGAZINE_BTN"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("5_m2rnd")
+theme_override_styles/hover = ExtResource("4_qft2t")
+theme_override_styles/pressed = ExtResource("5_m2rnd")
+theme_override_styles/normal = ExtResource("3_ulwa0")
+text = "SETTINGS_BTN"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("5_m2rnd")
+theme_override_styles/hover = ExtResource("4_qft2t")
+theme_override_styles/pressed = ExtResource("5_m2rnd")
+theme_override_styles/normal = ExtResource("3_ulwa0")
+text = "QUIT_BTN"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -86.0
+offset_top = 14.0
+offset_right = -18.0
+offset_bottom = 46.0
+grow_horizontal = 0
+
+[node name="Russian" type="Button" parent="VBoxContainer2"]
+texture_filter = 3
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/icon_max_width = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_raiht")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pads4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dom6d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_n7bg7")
+action_mode = 0
+icon = ExtResource("2_6veuo")
+
+[node name="English" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/icon_max_width = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rh766")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d7qby")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t3ogd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xsa2o")
+action_mode = 0
+icon = ExtResource("3_swu30")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rvr1c")
+bus = &"sfx"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Magazine" to="." method="_on_magazine_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Russian" to="." method="_on_russian_pressed"]
+[connection signal="pressed" from="VBoxContainer2/English" to="." method="_on_english_pressed"]
