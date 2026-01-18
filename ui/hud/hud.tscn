@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv4wit3ggljnn"]
+[gd_scene load_steps=3 format=3 uid="uid://bv4wit3ggljnn"]
 
 [ext_resource type="Script" uid="uid://ck55slkwoduoc" path="res://ui/hud/hud.gd" id="1_7bh7h"]
+[ext_resource type="Texture2D" uid="uid://dgrt7lc57u5df" path="res://assets/icons/pause.png" id="2_4d6w6"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_7bh7h")
@@ -31,3 +32,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 text = "POINTS"
+
+[node name="Button" type="TouchScreenButton" parent="MarginContainer"]
+position = Vector2(300, 10)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_4d6w6")
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

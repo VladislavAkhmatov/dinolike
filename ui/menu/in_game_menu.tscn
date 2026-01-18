@@ -45,21 +45,13 @@ theme_override_styles/pressed = ExtResource("4_xaeyc")
 theme_override_styles/normal = ExtResource("2_adm0j")
 text = "MAGAZINE_BTN"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/focus = ExtResource("4_xaeyc")
 theme_override_styles/hover = ExtResource("3_rk4f8")
 theme_override_styles/pressed = ExtResource("4_xaeyc")
 theme_override_styles/normal = ExtResource("2_adm0j")
-text = "SETTINGS_BTN"
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/focus = ExtResource("4_xaeyc")
-theme_override_styles/hover = ExtResource("3_rk4f8")
-theme_override_styles/pressed = ExtResource("4_xaeyc")
-theme_override_styles/normal = ExtResource("2_adm0j")
-text = "QUIT_BTN"
+text = "MAIN_MENU_BTN"
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_3nsbs")
@@ -67,4 +59,4 @@ bus = &"sfx"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Magazine" to="." method="_on_magazine_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

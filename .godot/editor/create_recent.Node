@@ -1,6 +1,6 @@
 TouchScreenButton
-CanvasLayer
 Button
+CanvasLayer
 VBoxContainer
 Sprite2D
 VideoStreamPlayer
@@ -12,12 +12,3 @@ ColorRect
 Control
 TextureRect
 GridContainer
-MarginContainer
-CollisionShape2D
-VisibleOnScreenEnabler2D
-AnimatedSprite2D
-CharacterBody2D
-ParallaxLayer
-Camera2D
-ParallaxBackground
-TileMap
