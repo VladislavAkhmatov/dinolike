@@ -29,7 +29,7 @@
 script = ExtResource("1_frhu1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.416016, 0.416016)
+scale = Vector2(0.416016, 0.397461)
 texture = ExtResource("2_0acd3")
 centered = false
 
@@ -45,10 +45,10 @@ color = Color(0, 0, 0, 0.560784)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -170.0
-offset_right = 188.0
-offset_bottom = -38.0
+offset_left = 39.0
+offset_top = -130.0
+offset_right = 187.0
+offset_bottom = -29.0
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_constants/separation = 20
@@ -76,14 +76,6 @@ theme_override_styles/hover = ExtResource("4_qft2t")
 theme_override_styles/pressed = ExtResource("5_m2rnd")
 theme_override_styles/normal = ExtResource("3_ulwa0")
 text = "SETTINGS_BTN"
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/focus = ExtResource("5_m2rnd")
-theme_override_styles/hover = ExtResource("4_qft2t")
-theme_override_styles/pressed = ExtResource("5_m2rnd")
-theme_override_styles/normal = ExtResource("3_ulwa0")
-text = "QUIT_BTN"
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="."]
 anchors_preset = 1
@@ -125,6 +117,5 @@ bus = &"sfx"
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Magazine" to="." method="_on_magazine_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Russian" to="." method="_on_russian_pressed"]
 [connection signal="pressed" from="VBoxContainer2/English" to="." method="_on_english_pressed"]

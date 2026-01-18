@@ -47,7 +47,9 @@ func _process(delta):
 	
 func check_game_over():
 	if Globals.lives <= 0:
-		await get_tree().create_timer(0.05).timeout
+		if OS.has_feature("web"):
+			await YandexSdk.show_ad_after_death()
+			
 		add_child(GAME_OVER.instantiate())
 		get_tree().paused = true
 		Globals.reset_lives()

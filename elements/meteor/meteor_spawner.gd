@@ -12,10 +12,12 @@ func _ready():
 	spawn_loop()
 
 func spawn_loop():
-	while true:
+	while is_inside_tree():
+		if get_tree().paused:
+			await get_tree().process_frame
+			continue
 		spawn_meteor()
 		await get_tree().create_timer(SpawnManager.SPAWN_DELAY).timeout
-		#print(SpawnManager.SPAWN_DELAY)
 		
 func spawn_meteor():
 	var meteor = METEOR_SCENE.instantiate()

@@ -25,3 +25,8 @@ func _on_magazine_pressed():
 	click.play()
 	await click.finished
 	get_tree().change_scene_to_file("res://ui/shop/shop.tscn")
+
+
+func _on_main_menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://ui/menu/main_menu.tscn")
