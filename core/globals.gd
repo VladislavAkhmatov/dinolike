@@ -88,4 +88,14 @@ func load_sounds():
 		var bus = AudioServer.get_bus_index(bus_name)
 		AudioServer.set_bus_volume_db(bus, linear_to_db(value))
 	
-	
+func game_ready():
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("yg_game_ready()", true)
+
+func gameplay_start():
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("yg_gameplay_start()", true)
+
+func gameplay_stop():
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("yg_gameplay_stop()", true)

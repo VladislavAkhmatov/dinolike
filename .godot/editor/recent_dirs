@@ -1,5 +1,4 @@
 C:/xampp/htdocs/dashboard/dinolike
-res://
 C:/godot_build/dinolike_android
 C:/Users/515/.android
 C:/Users/515/appdata/Local/Android/Sdk
@@ -20,3 +19,6 @@ res://ui/hud
 res://core
 res://ui
 res://elements/meteor
+res://elements/background
+res://elements/dino
+res://elements/tilemap

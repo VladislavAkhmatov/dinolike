@@ -17,7 +17,7 @@ func _wait_sdk() -> void:
 			return
 		await get_tree().process_frame
 
-func show_ad_after_death() -> void:
+func show_ad_after_click() -> void:
 	if !_ready_ok or _busy:
 		return
 	_busy = true

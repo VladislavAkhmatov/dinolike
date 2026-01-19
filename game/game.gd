@@ -13,6 +13,8 @@ var dino_instantiate
 
 func _ready():
 	get_tree().paused = false
+	await get_tree().process_frame
+	Globals.gameplay_play()
 	Events.lives_changed.connect(func(lives): check_game_over())
 	dino_instantiate = DINO.instantiate()
 	dino_instantiate.position.y = 300.0
@@ -39,6 +41,7 @@ func _process(delta):
 		last_spawn_left -= spawn_zone_width
 		
 	if Input.is_action_just_pressed("ui_cancel"):
+		Globals.gameplay_stop()
 		var enable_in_game_menu = IN_GAME_MENU.instantiate()
 		add_child(enable_in_game_menu)
 		
@@ -47,9 +50,7 @@ func _process(delta):
 	
 func check_game_over():
 	if Globals.lives <= 0:
-		if OS.has_feature("web"):
-			await YandexSdk.show_ad_after_death()
-			
+		Globals.gameplay_stop()
 		add_child(GAME_OVER.instantiate())
 		get_tree().paused = true
 		Globals.reset_lives()

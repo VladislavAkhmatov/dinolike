@@ -4,32 +4,32 @@ extends CanvasLayer
 @onready var click = $Click
 
 func _ready():
-	pass
+	await get_tree().process_frame
+	Globals.game_ready()
 	#load_language()
 	
 func _on_magazine_pressed():
 	click.play()
-	await click.finished
+	if OS.has_feature("web"):
+		await YandexSdk.show_ad_after_click()
 	get_tree().change_scene_to_file("res://ui/shop/shop.tscn")
-
+	
 func _on_play_pressed():
+	await get_tree().process_frame
+	Globals.gameplay_start()
 	click.play()
-	await click.finished
 	get_tree().change_scene_to_file("res://game/game.tscn")
 
 func _on_quit_pressed():
 	click.play()
-	await click.finished
 	get_tree().quit()
 
 func _on_russian_pressed():
 	click.play()
-	await click.finished
 	YandexSdk.set_locale("ru")
 
 func _on_english_pressed():
 	click.play()
-	await click.finished
 	YandexSdk.set_locale("en")
 	
 #func change_language(locale: String):

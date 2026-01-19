@@ -20,7 +20,7 @@ func update_ui():
 	var current_price = round((price_step * Globals.max_lives_step) / 1.1)
 	upgrade_label.text = str(tr("PRICE"), ": ", current_price, " ", tr("POINTS"))
 	
-	upgrade_label.text += str("\nLives: ", Globals.max_lives)
+	upgrade_label.text += str("\n", tr("LIVE"), ": ", Globals.max_lives)
 	
 	if Globals.max_lives == max_lives:
 		upgrade_btn.disabled = true

@@ -17,7 +17,7 @@ func update_ui():
 	var current_price = price_step * Globals.multiplier_step
 	upgrade_label.text = str(tr("PRICE"), ": ", current_price, " ", tr("POINTS"))
 	
-	upgrade_label.text += str("\nMultiplier x: ", Globals.multiplier)
+	upgrade_label.text += str("\n", tr("MULTIPLIER_SHORT"), " x: ", Globals.multiplier)
 	
 func _on_upgrade_btn_pressed():
 	click.play()

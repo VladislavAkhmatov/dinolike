@@ -18,5 +18,6 @@ func update_points(points):
 	points_label.text = str(tr("POINTS"), ": ", round(points))
 
 func _on_button_pressed() -> void:
+	Globals.gameplay_stop()
 	var enable_in_game_menu = IN_GAME_MENU.instantiate()
 	add_child(enable_in_game_menu)

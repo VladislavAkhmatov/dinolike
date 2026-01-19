@@ -17,7 +17,6 @@ func _ready():
 
 func _on_button_pressed():
 	click.play()
-	await click.finished
 	get_tree().change_scene_to_file("res://ui/menu/main_menu.tscn")
 
 func _on_music_value_changed(value):
